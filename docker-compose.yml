@@ -1,0 +1,17 @@
+version: '3'
+services:
+  www.tls-example.com:
+    image: tls-example-server
+    build:
+      context: .
+      dockerfile: ./compose/server/Dockerfile
+    ports:
+      - "80:80"
+      - "443:443"
+
+  client:
+    image: tls-example-client
+    build:
+      context: .
+      dockerfile: ./compose/client/Dockerfile
+    tty: true
